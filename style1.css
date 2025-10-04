@@ -38,7 +38,7 @@
 /* PODŚWIETLENIE PRZYCISKU */
 
 button:hover{
-    background-color: #c8d7e2d6 ;
+    background-color:  #324b6e ;
     transition: background-color 0.3s;
     transform: scale(1.1)
 
@@ -95,35 +95,37 @@ body{
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: transparent;          /* kolor tła = kolor strony */
-  color: inherit;                   /* tekst dziedziczy kolor */
+  background: transparent;
+  color: inherit;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   overflow: visible;
   z-index: 0;
   transition: transform .25s ease;
+  
+  /* usuń obramowania przeglądarki */
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 /* ROTUJĄCA OBRĘCZ z gradientem – bez wypełnienia środka */
 .where::before {
   content: "";
   position: absolute;
-  inset: -4px;                      /* grubość ringu */
+  inset: -4px;
   border-radius: 50%;
-  background: conic-gradient(#00ffff, #ff00ff, #00ffff);
-  /* wycięcie środka (tylko obwódka) */
+  background: conic-gradient(#edf1f4, #ae072b, #1f3656, #edf1f4);
   mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
-
-  /* animacje i stan domyślny */
   animation: spin 3s linear infinite;
-  opacity: 0;                       /* domyślnie niewidoczna obręcz */
+  opacity: 0;
   transition: opacity .25s ease;
-  z-index: -1;                      /* pod treścią przycisku */
+  z-index: -1;
 }
 
-/* Treść (np. obrazek) nad obręczą */
+/* Obrazek / tekst wewnątrz */
 .where img {
   height: 60%;
   margin-right: 0;
@@ -131,14 +133,21 @@ body{
   z-index: 1;
 }
 
-/* HOVER: pokaż obręcz + pulsuj całość */
+/* HOVER: pokazuje obwódkę i pulsuje */
 .where:hover::before {
   opacity: 1;
-  animation-duration: 1.6s;         /* szybszy obrót na hover */
+  animation-duration: 1.6s;
 }
 
 .where:hover {
   animation: pulse 1.6s ease-in-out infinite;
+}
+
+/* FOCUS: usuń niebieską ramkę w niektórych przeglądarkach */
+.where:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 /* ANIMACJE */
@@ -148,6 +157,7 @@ body{
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1);    }
+  0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.06); }
 }
+  background: conic-gradient(, , , );
