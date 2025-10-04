@@ -6,22 +6,32 @@
     <title>Milky Way initiative</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="icon" href="MWI.png">
-</head>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  </head>
 <body>
-    <div class="sectionStart">
-        <button id="start">START MISSION</button>
-    </div>
-    <div class="sectionStart">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script> -->
+  <div class="sectionStart">
+    <button id="start">START MISSION</button>
+  </div>
+  <div class="sectionStart">
     <button class="where">Orbita</button>
     <button class="where">Księżyc</button>
     <button class="where">Mars</button>
     <button class="where">Orbita Ziemi</button>
   </div>
-  <div class="sectionStart">
-    UwU
-  </div>
+  <div id="editor" class="sectionStart"></div>
   <div class="sectionStart">
     2137
   </div>
+
+  <script type="module" src="base_editor.js"></script>
 </body>
 </html>
