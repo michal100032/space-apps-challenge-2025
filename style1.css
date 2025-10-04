@@ -1,6 +1,6 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    color: white;
+    color: #edf1f4;
 }
 
 button {
@@ -17,11 +17,21 @@ select {
 
 /* --- Styl tytułu i pól tekstowych --- */
 #missionTitle {
-    color: white;
+    color: #edf1f4;
     font-weight: 800;
     font-size: 3rem;
     text-align: center;
     margin-bottom: 1vh;
+}
+
+/* --- Wybór środowiska --- */
+#choosebutton {
+    color: #edf1f4;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 15vh;
+    position: absolute;
 }
 
 /* Mały pasek do wpisania nazwy misji */
@@ -33,8 +43,8 @@ select {
     padding: 0.6rem 1rem;
     border: 2px solid rgba(255, 255, 255, 0.6);
     border-radius: 8px;
-    background: transparent;
-    color: white;
+    background: rgba(16, 14, 14, 0.545);
+    color: #edf1f4;
     font-size: 1rem;
     text-align: center;
     outline: none;
@@ -42,12 +52,12 @@ select {
 }
 
 #missionInput::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: #f4eded(255, 255, 255, 0.6);
 }
 
 #missionInput:focus {
-    border-color: #00ffff;
-    box-shadow: 0 0 8px #00ffff;
+    border-color: #edf1f4;
+    box-shadow: 0 0 8px #edf1f4;
 }
 
 /* Duży przezroczysty box z tekstem */
@@ -58,10 +68,10 @@ select {
     max-width: 700px;
     height: 25vh;
     padding: 1rem 1.2rem;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid #f4efed(255, 255, 255, 0.4);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
+    background: rgba(16, 14, 14, 0.545);
+    color: #f4eded;
     font-size: 1rem;
     resize: none;
     outline: none;
@@ -70,8 +80,8 @@ select {
 }
 
 #missionDescription:focus {
-    border-color: #00ffff;
-    box-shadow: 0 0 10px #00ffff;
+    border-color: #edf1f4;
+    box-shadow: 0 0 10px #edf1f4;
 }
 
     /* Aby wszystko było wyśrodkowane */
@@ -127,7 +137,7 @@ select {
     width: 15vw;
     margin-top: 75vh;
     border-radius: 20px;
-    background: transparent;
+    background: #1f3656;
     color: rgb(255, 255, 255);
     font-size: 100%;
     
@@ -151,14 +161,13 @@ button:hover{
 
 button{
     transition: transform 0.2s ease, background 0.2s ease;
+    background-color: #edf1f4 ;
 }
 
 body{
     /* GRADIENT STRONY*/ 
     overflow: hidden;
-    
     background: linear-gradient(to bottom, black, #030304, #1f3656, #324b6e, #edf1f4);
-
 }
 
 /* POZYCJE PRZYCISKÓW */
@@ -168,6 +177,7 @@ body{
     left: 6vw;
     display: none;
     gap: 10px;
+    
 }
 
 #go button {
@@ -175,21 +185,6 @@ body{
     margin-left: 4vw;
     width: 15vw;
     border-radius: 15px;
-}
-
-/* POZYCJE PRZYCISKÓW */
-#go {
-  position: fixed;
-  bottom: 5rem;
-  left: 6vw;
-  display: none;
-  gap: 10px;
-}
-
-#go button {
-  height: 8vh;
-  margin-left: 4vw;
-  width: 15vw;
 }
 
 /* PRZYCISK */
