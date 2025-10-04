@@ -19,7 +19,7 @@ function sendMessage() {
   setTimeout(() => {
     const botMsg = document.createElement("div");
     botMsg.className = "bot-message";
-    botMsg.textContent = "This is an example response from a chatbot.";
+    botMsg.textContent = "It seems your mission will require both sunlight and access to ice. A landing site near the northern polar region might provide both.";
     chatBody.appendChild(botMsg);
     chatBody.scrollTop = chatBody.scrollHeight;
   }, 600);
