@@ -33,9 +33,41 @@
 }
 
 #place-corridor-button {
-    top: 10vh;
+    top: 5vh;
 }
 
 #place-hub-button {
-    top: 30vh; 
+    top: 25vh; 
 }
+
+/*kolejne nowe przyciski */
+
+#place-PV-module{
+    top: 45vh;
+}
+#nextSection-button{
+    top: 65vh;
+}
+
+#backSection-button{
+    top: 85vh;
+}
+
+#section3 #tutorialButton{
+    left: 1.5vw;
+    top: 2vh;
+    width: 15vw;
+    height: 40vh;
+    border-radius: 15px;
+    background: none;
+    border: solid #edf1f4;
+    
+}
+
+#section3 #tutorialButton ul li{
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin-left: -2vw;
+}
+

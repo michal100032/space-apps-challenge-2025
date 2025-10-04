@@ -37,7 +37,10 @@ function scrollToBack(){
     }else{
     document.getElementById(`section${idx -= 1}`)
     .scrollIntoView({ behavior: "smooth" });
-
+      idx -=1
 }
 }
 
+function tutorialButton(){
+  document.getElementById("tutorialButton").style.display = "none";
+}
