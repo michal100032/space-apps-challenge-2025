@@ -34,15 +34,16 @@
     width: 25vw;
     margin-top: 75vh;
     border-radius: 20px;
-    background: white;
-    color: black;
+    background: transparent;
+    color: rgb(255, 255, 255);
     font-size: 300%;
     
 }
 
 #start:hover{
     transition: transform 0.6s ease-in-out;
-    transform: scale(1.5);
+    transform: scale(1.1);
+
 }
 
 /* PODŚWIETLENIE PRZYCISKU */
@@ -114,6 +115,7 @@ body{
   overflow: visible;
   z-index: 0;
   transition: transform .25s ease;
+  color: #edf1f4;
   
   /* usuń obramowania przeglądarki */
   border: none;
