@@ -17,9 +17,12 @@ function scrollToSection(x) {
   document.getElementById(`section${x}`)
     .scrollIntoView({ behavior: "smooth" });
 
-    // Sprawdzamy, czy jesteśmy od sekcji2 w górę
+    // Sprawdzamy, czy jesteśmy od sekcji2 w górę oraz ustawienie czasu pojawienia się przycisków powrót
   if (x >= 1) {
-    document.getElementById("go").style.display = "flex";
+    firstTime = false;
+      setTimeout(() => {
+        document.getElementById("go").style.display = "flex";
+      }, 370);
   } else {
   idx = x+1
     document.getElementById("go").style.display = "none";

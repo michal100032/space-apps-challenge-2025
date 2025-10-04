@@ -29,9 +29,19 @@
     
 }
 #start{
-    height: 30vh;
-    width: 30vw;
-    margin-top: 30vh;
+    height: 15vh;
+    width: 25vw;
+    margin-top: 75vh;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    font-size: 300%;
+    
+}
+
+#start:hover{
+    transition: transform 0.6s ease-in-out;
+    transform: scale(1.5);
 }
 
 button:hover{
@@ -68,6 +78,7 @@ body{
     height: 8vh;
     margin-left: 4vw;
     width: 15vw;
+    border-radius: 15px;
 }
 
 /* OBWÓDKI PRZYCISKÓW */
