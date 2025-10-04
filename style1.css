@@ -120,6 +120,7 @@ select {
     /* Teraz nic tu nie ma */
     
     /* PIERWSZY PRZYCISK START */
+    background-image: url("TŁO_WYJŚCIOWE.png");
 }
 #start{
     height: 15vh;
@@ -155,7 +156,7 @@ body{
     /* GRADIENT STRONY*/ 
     overflow: hidden;
     
-    background: linear-gradient(to bottom, #030304, #1f3656, #324b6e, #edf1f4);
+    background: linear-gradient(to bottom, black, #030304, #1f3656, #324b6e, #edf1f4);
 
 }
 
@@ -266,3 +267,7 @@ body{
   50%      { transform: scale(1.06); }
 }
  
+#firstPlan{
+    border-radius: 0%;
+    
+}
