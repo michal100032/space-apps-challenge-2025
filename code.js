@@ -10,8 +10,8 @@
     }
 
 */
-function scrollToSection1() {
-  document.getElementById("section1")
+function scrollToSection(idx) {
+  document.getElementById(`section${idx}`)
     .scrollIntoView({ behavior: "smooth" });
 }
 
