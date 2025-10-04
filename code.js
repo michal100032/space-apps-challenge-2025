@@ -1,4 +1,5 @@
-    function scrollToSection() {
+ /*
+ function scrollToSection() {
       document.getElementById("section1")
         .scrollIntoView({ behavior: "smooth" });
 
@@ -7,3 +8,15 @@
         document.body.style.overflow = "auto";
       }, 1000); // 1s = czas animacji
     }
+
+*/
+function scrollToSection(idx) {
+  document.getElementById(`section${idx}`)
+    .scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToHome() {
+  document.getElementById("firstPlan")
+    .scrollIntoView({ behavior: "smooth" });
+}
+
