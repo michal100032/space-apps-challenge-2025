@@ -1,11 +1,11 @@
 .where{
-    height: 20rem;
+    height: 30vh;
     width: 20rem;
     display: inline-block;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 8rem;
+    margin-left: 5rem;
     margin-top: 15rem;
     
 }
@@ -13,12 +13,43 @@
 
 .sectionStart{
     display: flex;
-  gap: 10px;
-  justify-content: center;
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  height: 100vh;
+    gap: 10px;
+    justify-content: center;
+    
+    padding: 20px;
+    border-radius: 16px;
+
+    /* Tutaj jest ten dziwny margines oddzielający sekcje */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: 100vh;
   
 }
+#firstPlan {
+    /* Teraz nic tu nie ma */
+    
+}
+#start{
+    height: 30vh;
+    width: 30vw;
+    margin-top: 30vh;
+}
+
+button:hover{
+    background-color: red;
+    transition: background-color 0.3s;
+    transform: scale(1.1)
+
+}
+
+button{
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+body{
+    /* GRADIENT STRONY*/ 
+    overflow: hidden;
+    
+    background: linear-gradient(to bottom, #030304, #1f3656, #324b6e, #edf1f4);
+
+}
+    

@@ -1,5 +1,5 @@
 // Scene
-const editor = document.getElementById("editor");
+const editor = document.getElementById("section3");
 const scene = new THREE.Scene();
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
