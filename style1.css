@@ -52,4 +52,60 @@ body{
     background: linear-gradient(to bottom, #030304, #1f3656, #324b6e, #edf1f4);
 
 }
+
+/* OBWÓDKI PRZYCISKÓW */
+.where {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.where img {
+  height: 60%;
+  margin-right: 8px;
+}
+
+.orbit-border {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #00f, #0ff);
+  animation: rotate 2s linear infinite;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.where:hover .orbit-border {
+  opacity: 1;
+}
+
+.where:hover {
+  transform: scale(1.05);
+}
+
+.where > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
     
