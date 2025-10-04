@@ -6,6 +6,7 @@
     <title>Milky Way initiative</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="MWI.png">
     <script type="importmap">
     {
@@ -15,32 +16,204 @@
         }
     }
     </script>
+
+    <style>
+      /* --- Styl tytułu i pól tekstowych --- */
+      #missionTitle {
+        color: white;
+        font-weight: 800;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Mały pasek do wpisania nazwy misji */
+      #missionInput {
+        display: block;
+        margin: 0 auto 1.5rem auto;
+        width: 25vw;
+        max-width: 350px;
+        padding: 0.6rem 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        background: transparent;
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      #missionInput::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      #missionInput:focus {
+        border-color: #00ffff;
+        box-shadow: 0 0 8px #00ffff;
+      }
+
+      /* Duży przezroczysty box z tekstem */
+      #missionDescription {
+        display: block;
+        margin: 0 auto 2rem auto;
+        width: 60vw;
+        max-width: 700px;
+        height: 25vh;
+        padding: 1rem 1.2rem;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-size: 1rem;
+        resize: none;
+        outline: none;
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+
+      #missionDescription:focus {
+        border-color: #00ffff;
+        box-shadow: 0 0 10px #00ffff;
+      }
+
+      /* Aby wszystko było wyśrodkowane */
+      /* Utrzymaj wszystko w centrum i pokaż START pod polami */
+  #firstPlan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* wyśrodkuj pionowo */
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  /* Nadpisanie starego margin-top, który wypychał przycisk poza kadr */
+  #start {
+    margin-top: 1.5rem !important;  /* zamiast 75vh */
+  }
+    </style>
 </head>
 <body>
     <div id="firstPlan" class="sectionStart">
+
+        <!-- 🔹 Dodane: tytuł, mały pasek i duży box -->
+        <h1 id="missionTitle">Milky Way Initiative</h1>
+
+        <input type="text" id="missionInput" placeholder="Enter your mission name...">
+
+        <textarea id="missionDescription" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna vel nulla facilisis, vitae ullamcorper lorem facilisis. Morbi luctus lorem ac ex pharetra, in suscipit nisi iaculis."></textarea>
+
+        <!-- 🔹 Twój przycisk START -->
         <button id="start" onclick="scrollToSection(1)">START MISSION</button>
     </div>
+
     <div id="section1" class="sectionStart">
 
-    <button class="where">ORBIT
+      <!-- PRZYCISKI WYBORU ŚRODOWISKA -->
+      
+
+    <button class="where" onclick="scrollToSection(2)" >
+
+      <span class="orbit-border"></span>
        <img src="ORBIT.png" alt="ORBIT" style="height: 80%; vertical-align: middle;">
+       ORBIT
     </button>
 
-    <button class="where" onclick="scrollToSection(3)">MOON
+
+    <button class="where" onclick="scrollToSection(2)" >
+
+      <span class="orbit-border"></span>
       <img src="MOON.png" alt="MOON" style="height: 80%; vertical-align: middle;">
+      MOON
     </button>
 
-    <button class="where">MARS
+
+    <button class="where" onclick="scrollToSection(2)" >
+
+      <span class="orbit-border"></span>
       <img src="MARS.png" alt="MARS" style="height: 80%; vertical-align: middle;">
+      MARS
     </button>
 
-    <button class="where">Projekt dowolny</button>
 
-        
-        <button class="home" onclick="scrollToHome()">Do Początku</button>
-        <button class="back" onclick="scrollToHome()">cofnij</button>
+    <button class="where" onclick="scrollToSection(2)" >
+
+      <span class="orbit-border"></span>
+      <img src="CUSTOM.png" alt="CUSTOM" style="height: 80%; vertical-align: middle;">
+      CUSTOM
+    </button>
+
+
+      <!-- PRZYCISKI COFANIA -->  
+
+ origin/main
+      <div id="go">
+        <button class="home" onclick="scrollToHome()">HOME</button>
+        <button class="back" onclick="scrollToBack()">BACK</button>
+      </div> 
+  </div>
+
+
+    <!-- DANE WEJŚCIOWE --> 
+
+  <div id="section2" class="sectionStart">
+
+    <!-- DANE  --> 
+       <!-- Lewa kolumna: formularz -->
+  <div class="left">
+    <form id="misjaForm">
+      <div class="row">
+        <label for="zaloga">Number of crew:</label>
+        <input type="number" id="zaloga" required>
+      </div>
+
+      <div class="row">
+        <label>mission length:</label>
+        <input type="number" id="dni" placeholder="years" required>
+        <input type="number" id="mies" placeholder="months" required>
+        <input type="number" id="lata" placeholder="days" required>
+      </div>
+
+      <div class="row">
+              <label for="habitat">Habitat Class:</label>
+              <select id="habitat" required>
+                <option value="">-- choose habitat --</option>
+                <option value="A">metal habitats</option>
+                <option value="B">inflatable habitats</option>
+                <option value="C">habitats from local resources</option>
+              </select>
+            </div>
+
+      <div class="row">
+        <label for="badania">Planned research:</label>
+        <input type="text" id="badania" required>
+      </div>
+
+      <div class="row">
+        <label for="zasoby">Additional resources:</label>
+        <input type="text" id="zasoby" required>
+      </div>
+
+      
+    </form>
+  </div>
+
+  <!-- Prawa kolumna: tekst -->
+  <div class="right">
+    <h2>LOREM IPSUM</h2>
+    <p>
+      To jest przykładowy tekst po prawej stronie, opisujący szczegóły SI.
+    </p>
+  </div>
+  <script src="data.js"></script>
+</div>
+
+
+  </div>
     
   </div>
+<<<<<<< HEAD
   <div id="section2" class="sectionStart">
     UwU
   </div>
@@ -50,10 +223,13 @@
         <button id="place-hub-button">Place hub</button>
     </div>
   </div>
+=======
+      <!-- MODEL 3D --> 
+
+  <div id="section3" class="sectionStart"></div>
+>>>>>>> origin/main
 
   <script type="module" src="base_editor.js"></script>
+  <script src="code.js"></script>
 </body>
-<script src="code.js">
-    
-</script>
 </html>

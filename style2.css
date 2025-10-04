@@ -1,0 +1,58 @@
+#section2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+}
+
+#section2 .left {
+  flex: 1;
+}
+
+#section2 .right {
+  flex: 1;
+}
+
+/* wiersze formularza */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.row label {
+  min-width: 180px; /* szerokość etykiety */
+  font-weight: bold;
+}
+
+/* zmniejszone pola */
+.row input,
+.row select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 120px; /* mniejsze pola */
+}
+
+/* wyjątek dla dłuższych tekstów */
+#badania,
+#zasoby {
+  width: 200px;
+}
+
+/* przycisk */
+form button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #45a049;
+}

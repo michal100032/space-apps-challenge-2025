@@ -27,15 +27,29 @@
 #firstPlan {
     /* Teraz nic tu nie ma */
     
+    /* PIERWSZY PRZYCISK START */
 }
 #start{
-    height: 30vh;
-    width: 30vw;
-    margin-top: 30vh;
+    height: 15vh;
+    width: 25vw;
+    margin-top: 75vh;
+    border-radius: 20px;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 300%;
+    
 }
 
+#start:hover{
+    transition: transform 0.6s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+/* PODŚWIETLENIE PRZYCISKU */
+
 button:hover{
-    background-color: red;
+    background-color:  #324b6e ;
     transition: background-color 0.3s;
     transform: scale(1.1)
 
@@ -52,4 +66,111 @@ body{
     background: linear-gradient(to bottom, #030304, #1f3656, #324b6e, #edf1f4);
 
 }
-    
+
+/* POZYCJE PRZYCISKÓW */
+#go {
+    position: fixed;
+    bottom: 5rem;
+    left: 6vw;
+    display: none;
+    gap: 10px;
+}
+
+#go button {
+    height: 8vh;
+    margin-left: 4vw;
+    width: 15vw;
+    border-radius: 15px;
+}
+
+/* POZYCJE PRZYCISKÓW */
+#go {
+  position: fixed;
+  bottom: 5rem;
+  left: 6vw;
+  display: none;
+  gap: 10px;
+}
+
+#go button {
+  height: 8vh;
+  margin-left: 4vw;
+  width: 15vw;
+}
+
+/* PRZYCISK */
+.where {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: visible;
+  z-index: 0;
+  transition: transform .25s ease;
+  color: #edf1f4;
+  
+  /* usuń obramowania przeglądarki */
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ROTUJĄCA OBRĘCZ z gradientem – bez wypełnienia środka */
+.where::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(#edf1f4, #ae072b, #1f3656, #edf1f4);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+  animation: spin 3s linear infinite;
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: -1;
+}
+
+/* Obrazek / tekst wewnątrz */
+.where img {
+  height: 60%;
+  margin-right: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* HOVER: pokazuje obwódkę i pulsuje */
+.where:hover::before {
+  opacity: 1;
+  animation-duration: 1.6s;
+}
+
+.where:hover {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+/* FOCUS: usuń niebieską ramkę w niektórych przeglądarkach */
+.where:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* ANIMACJE */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+ 
