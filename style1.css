@@ -46,10 +46,10 @@ button{
 }
 
 body{
-    /* BLOKADA zjazdu*/ 
+    /* GRADIENT STRONY*/ 
     overflow: hidden;
     
-    background: linear-gradient(to bottom, #ae072b, #edf1f4);
+    background: linear-gradient(to bottom, #030304, #1f3656, #324b6e, #edf1f4);
 
 }
     
