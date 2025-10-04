@@ -21,6 +21,7 @@ function scrollToSection(x) {
   if (x >= 1) {
     document.getElementById("go").style.display = "flex";
   } else {
+  idx = x+1
     document.getElementById("go").style.display = "none";
   }
   idx = x-1;
@@ -36,7 +37,7 @@ function scrollToHome() {
 
 function scrollToBack(){ 
   console.log(idx) 
-    if (idx == 1){
+    if (idx <= 1){
       scrollToHome()
     }else{
     document.getElementById(`section${idx -= 1}`)
