@@ -37,7 +37,10 @@ editor.appendChild(renderer.domElement);
 
 // Place ground plane
 const planeGeometry = new THREE.PlaneGeometry(100, 100);
-const planeMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load('moon01.jpg');
+const planeMaterial = new THREE.MeshStandardMaterial({map: texture});
+
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.receiveShadow = true; // enable shadow receiving
 scene.add(plane);   
