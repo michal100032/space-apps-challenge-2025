@@ -5,6 +5,8 @@
   gap: 40px;
   padding: 40px;
   min-height: 100vh;     /* pełna wysokość ekranu */
+  background-image: url("tło3.png");
+  border-radius: 0;
 }
 
 #section2 .left {
