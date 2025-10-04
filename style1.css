@@ -15,17 +15,15 @@
     display: flex;
     gap: 10px;
     justify-content: center;
-    background: #fff;
+    
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     height: 100vh;
   
 }
-
 #firstPlan {
-    /* To tutaj jest gradient */
-    background: linear-gradient(to bottom, #edf1f4, #ae072b);
+    /* Teraz nic tu nie ma */
     
 }
 #start{
@@ -44,8 +42,12 @@ button:hover{
 button{
     transition: transform 0.2s ease, background 0.2s ease;
 }
-/*
+
 body{
+    /*
     overflow: hidden;
-}
     */ 
+    background: linear-gradient(to bottom, #ae072b, #edf1f4);
+
+}
+    
