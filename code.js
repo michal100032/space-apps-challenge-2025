@@ -30,13 +30,14 @@ function scrollToHome() {
 }
 
 function scrollToBack(){ 
-  console.log(idx) 
+  console.log(idx)
+    
     if (idx <= 1){
       scrollToHome()
     }else{
     document.getElementById(`section${idx -= 1}`)
     .scrollIntoView({ behavior: "smooth" });
-    
+
 }
 }
 
