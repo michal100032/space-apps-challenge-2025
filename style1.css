@@ -57,10 +57,17 @@ body{
 
 #go {
     position: fixed;
-    bottom: 20px;     /* 20px od dołu */
-    right: 20px;      /* 20px od prawej */
+    bottom: 5rem;     /* 20px od dołu */
+    left: 6vw;      /* 20px od prawej */
     display: none;    /* domyślnie ukryte */
     gap: 10px;
+    
+}
+
+#go button {
+    height: 8vh;
+    margin-left: 4vw;
+    width: 15vw;
 }
 
 /* OBWÓDKI PRZYCISKÓW */
