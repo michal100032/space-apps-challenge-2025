@@ -1,58 +1,72 @@
 #section2 {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;   /* wyśrodkowanie w pionie */
   gap: 40px;
   padding: 40px;
+  min-height: 100vh;     /* pełna wysokość ekranu */
 }
 
 #section2 .left {
   flex: 1;
+  display: flex;
+  justify-content: center;  /* środek w poziomie w kolumnie */
 }
 
 #section2 .right {
   flex: 1;
 }
 
-/* wiersze formularza */
+/* Formularz wewnątrz lewej kolumny */
+#misjaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;   /* powiększona czcionka */
+}
+
+/* Wiersze formularza */
 .row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  justify-content: flex-start;
+  gap: 15px;
 }
 
+/* Etykieta */
 .row label {
-  min-width: 180px; /* szerokość etykiety */
+  min-width: 200px;
   font-weight: bold;
 }
 
-/* zmniejszone pola */
+/* Pola przesunięte w prawo (bliżej środka) */
 .row input,
 .row select {
-  padding: 6px 8px;
+  padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  width: 120px; /* mniejsze pola */
+  width: 150px;          /* trochę mniejsze, żeby nie były na całą szerokość */
+  font-size: 18px;       /* powiększona czcionka */
+  margin-left: auto;     /* przesunięcie pola w prawo */
 }
 
-/* wyjątek dla dłuższych tekstów */
-#badania,
-#zasoby {
-  width: 200px;
-}
-
-/* przycisk */
-form button {
+/* Przycisk "Dalej" */
+#dalejBtn {
+  align-self: flex-end; /* trzyma się po prawej stronie formularza */
   background: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 18px;
   transition: 0.3s;
 }
 
-form button:hover {
+#dalejBtn:hover {
   background: #45a049;
+}
+
+#habitat{
+    width: 15vw;
 }
