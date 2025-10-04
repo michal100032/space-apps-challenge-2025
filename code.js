@@ -13,6 +13,13 @@
 function scrollToSection(idx) {
   document.getElementById(`section${idx}`)
     .scrollIntoView({ behavior: "smooth" });
+
+    // Sprawdzamy, czy jesteśmy od sekcji2 w górę
+  if (idx >= 1) {
+    document.getElementById("go").style.display = "flex";
+  } else {
+    document.getElementById("go").style.display = "none";
+  }
 }
 
 function scrollToHome() {

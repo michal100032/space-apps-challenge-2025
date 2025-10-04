@@ -52,4 +52,12 @@ body{
     background: linear-gradient(to bottom, #030304, #1f3656, #324b6e, #edf1f4);
 
 }
-    
+
+
+#go {
+    position: fixed;
+    bottom: 20px;     /* 20px od dołu */
+    right: 20px;      /* 20px od prawej */
+    display: none;    /* domyślnie ukryte */
+    gap: 10px;
+}
