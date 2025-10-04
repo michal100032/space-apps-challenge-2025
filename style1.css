@@ -18,6 +18,8 @@
     
     padding: 20px;
     border-radius: 16px;
+
+    /* Tutaj jest ten dziwny margines oddzielający sekcje */
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     height: 100vh;
   
@@ -44,9 +46,9 @@ button{
 }
 
 body{
-    /*
+    /* BLOKADA zjazdu*/ 
     overflow: hidden;
-    */ 
+    
     background: linear-gradient(to bottom, #ae072b, #edf1f4);
 
 }
