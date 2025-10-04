@@ -24,10 +24,10 @@ function scrollToSection(x) {
         document.getElementById("go").style.display = "flex";
       }, 370);
   } else {
-  idx = x+1
+  idx = x;
     document.getElementById("go").style.display = "none";
   }
-  idx = x-1;
+  idx = x;
 }
 
 function scrollToHome() {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milky Way initiative</title>
     <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="MWI.png">
     <script type="importmap">
     {
@@ -23,36 +24,93 @@
 
       <!-- PRZYCISKI WYBORU ŚRODOWISKA -->
       
-    <button class="where" onclick="scrollToSection(3)" >ORBIT
+    <button class="where" onclick="scrollToSection(2)" >ORBIT
       <span class="orbit-border"></span>
        <img src="ORBIT.png" alt="ORBIT" style="height: 80%; vertical-align: middle;">
     </button>
 
-    <button class="where" onclick="scrollToSection(3)" >MOON
+    <button class="where" onclick="scrollToSection(2)" >MOON
       <span class="orbit-border"></span>
       <img src="MOON.png" alt="MOON" style="height: 80%; vertical-align: middle;">
     </button>
 
-    <button class="where" onclick="scrollToSection(3)" >MARS
+    <button class="where" onclick="scrollToSection(2)" >MARS
       <span class="orbit-border"></span>
       <img src="MARS.png" alt="MARS" style="height: 80%; vertical-align: middle;">
     </button>
 
-    <button class="where" onclick="scrollToSection(3)" >CUSTOM
+    <button class="where" onclick="scrollToSection(2)" >CUSTOM
       <span class="orbit-border"></span>
       <img src="CUSTOM.png" alt="CUSTOM" style="height: 80%; vertical-align: middle;">
     </button>
 
-        
+      <!-- PRZYCISKI COFANIA -->  
 
       <div id="go">
-        <button class="home" onclick="scrollToHome()">Do Początku</button>
-        <button class="back" onclick="scrollToBack()">cofnij</button>
+        <button class="home" onclick="scrollToHome()">HOME</button>
+        <button class="back" onclick="scrollToBack()">BACK</button>
       </div> 
   </div>
-  <div id="section2"> 
+
+    <!-- DANE WEJŚCIOWE --> 
+
+  <div id="section2" class="sectionStart">
+
+    <!-- DANE  --> 
+       <!-- Lewa kolumna: formularz -->
+  <div class="left">
+    <form id="misjaForm">
+      <div class="row">
+        <label for="zaloga">Number of crew:</label>
+        <input type="number" id="zaloga" required>
+      </div>
+
+      <div class="row">
+        <label>mission length:</label>
+        <input type="number" id="dni" placeholder="years" required>
+        <input type="number" id="mies" placeholder="months" required>
+        <input type="number" id="lata" placeholder="days" required>
+      </div>
+
+      <div class="row">
+              <label for="habitat">Habitat Class:</label>
+              <select id="habitat" required>
+                <option value="">-- choose habitat --</option>
+                <option value="A">metal habitats</option>
+                <option value="B">inflatable habitats</option>
+                <option value="C">habitats from local resources</option>
+              </select>
+            </div>
+
+      <div class="row">
+        <label for="badania">Planned research:</label>
+        <input type="text" id="badania" required>
+      </div>
+
+      <div class="row">
+        <label for="zasoby">Additional resources:</label>
+        <input type="text" id="zasoby" required>
+      </div>
+
+      
+    </form>
+  </div>
+
+  <!-- Prawa kolumna: tekst -->
+  <div class="right">
+    <h2>LOREM IPSUM</h2>
+    <p>
+      To jest przykładowy tekst po prawej stronie, opisujący szczegóły SI.
+    </p>
+  </div>
+  <script src="data.js"></script>
+</div>
+
 
   </div>
+    
+  </div>
+      <!-- MODEL 3D --> 
   <div id="section3" class="sectionStart"></div>
 
   <script type="module" src="base_editor.js"></script>
