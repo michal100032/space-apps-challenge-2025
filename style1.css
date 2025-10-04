@@ -1,3 +1,95 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+}
+
+button {
+    font-family: 'Orbitron', sans-serif;
+}
+
+input {
+    font-family: 'Orbitron', sans-serif;
+}
+
+select {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* --- Styl tytułu i pól tekstowych --- */
+#missionTitle {
+    color: white;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Mały pasek do wpisania nazwy misji */
+#missionInput {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: 25vw;
+    max-width: 350px;
+    padding: 0.6rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#missionInput::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#missionInput:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+/* Duży przezroczysty box z tekstem */
+#missionDescription {
+    display: block;
+    margin: 0 auto 2rem auto;
+    width: 60vw;
+    max-width: 700px;
+    height: 25vh;
+    padding: 1rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+#missionDescription:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+    /* Aby wszystko było wyśrodkowane */
+    /* Utrzymaj wszystko w centrum i pokaż START pod polami */
+#firstPlan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* wyśrodkuj pionowo */
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Nadpisanie starego margin-top, który wypychał przycisk poza kadr */
+#start {
+    margin-top: 1.5rem !important;  /* zamiast 75vh */
+}
+
 .where{
     height: 30vh;
     width: 20rem;
@@ -7,7 +99,7 @@
     flex-direction: column;
     margin-left: 5rem;
     margin-top: 15rem;
-    
+
 }
 
 

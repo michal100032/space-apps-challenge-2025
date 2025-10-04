@@ -6,10 +6,15 @@
     <title>
       Milky Way initiative
     </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="editor.css">
     <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="MWI.png">
+    
     <script type="importmap">
     {
         "imports": {
@@ -19,89 +24,13 @@
     }
     </script>
 
-    <style>
-      /* --- Styl tytułu i pól tekstowych --- */
-      #missionTitle {
-        color: white;
-        font-weight: 800;
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
-
-      /* Mały pasek do wpisania nazwy misji */
-      #missionInput {
-        display: block;
-        margin: 0 auto 1.5rem auto;
-        width: 25vw;
-        max-width: 350px;
-        padding: 0.6rem 1rem;
-        border: 2px solid rgba(255, 255, 255, 0.6);
-        border-radius: 8px;
-        background: transparent;
-        color: white;
-        font-size: 1rem;
-        text-align: center;
-        outline: none;
-        transition: all 0.3s ease;
-      }
-
-      #missionInput::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-      }
-
-      #missionInput:focus {
-        border-color: #00ffff;
-        box-shadow: 0 0 8px #00ffff;
-      }
-
-      /* Duży przezroczysty box z tekstem */
-      #missionDescription {
-        display: block;
-        margin: 0 auto 2rem auto;
-        width: 60vw;
-        max-width: 700px;
-        height: 25vh;
-        padding: 1rem 1.2rem;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
-        font-size: 1rem;
-        resize: none;
-        outline: none;
-        transition: all 0.3s ease;
-        text-align: left;
-      }
-
-      #missionDescription:focus {
-        border-color: #00ffff;
-        box-shadow: 0 0 10px #00ffff;
-      }
-
-      /* Aby wszystko było wyśrodkowane */
-      /* Utrzymaj wszystko w centrum i pokaż START pod polami */
-  #firstPlan {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;   /* wyśrodkuj pionowo */
-    min-height: 100vh;
-    text-align: center;
-  }
-
-  /* Nadpisanie starego margin-top, który wypychał przycisk poza kadr */
-  #start {
-    margin-top: 1.5rem !important;  /* zamiast 75vh */
-  }
-    </style>
 </head>
 <body>
     <div id="firstPlan" class="sectionStart">
 
         <!-- 🔹 Dodane: tytuł, mały pasek i duży box -->
         <h1 id="missionTitle">Milky Way Initiative</h1>
-        <h2 id="missionTitle" style="font-size: 30px;" >Your Home in Space: The Habitat Layout Creator </h2>
+        <h2 id="missionTitle" style="font-size: 30px; " >Your Home in Space: The Habitat Layout Creator </h2>
 
         <input type="text" id="missionInput" placeholder="Enter your mission name...">
 
@@ -150,7 +79,6 @@
 
       <!-- PRZYCISKI COFANIA -->  
 
- origin/main
       <div id="go">
         <button class="home" onclick="scrollToHome()">HOME</button>
         <button class="back" onclick="scrollToBack()">BACK</button>
@@ -216,7 +144,6 @@
   </div>
     
   </div>
-<<<<<<< HEAD
   <div id="section2" class="sectionStart">
     UwU
   </div>
@@ -226,11 +153,6 @@
         <button id="place-hub-button">Place hub</button>
     </div>
   </div>
-=======
-      <!-- MODEL 3D --> 
-
-  <div id="section3" class="sectionStart"></div>
->>>>>>> origin/main
 
   <script type="module" src="base_editor.js"></script>
   <script src="code.js"></script>
