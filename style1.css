@@ -27,6 +27,7 @@
 #firstPlan {
     /* Teraz nic tu nie ma */
     
+    /* PIERWSZY PRZYCISK START */
 }
 #start{
     height: 30vh;
@@ -34,8 +35,10 @@
     margin-top: 30vh;
 }
 
+/* PODŚWIETLENIE PRZYCISKU */
+
 button:hover{
-    background-color: red;
+    background-color: #c8d7e2d6 ;
     transition: background-color 0.3s;
     transform: scale(1.1)
 
@@ -53,7 +56,7 @@ body{
 
 }
 
-
+/* POZYCJE PRZYCISKÓW */
 
 #go {
     position: fixed;
