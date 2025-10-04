@@ -27,6 +27,7 @@
 #firstPlan {
     /* Teraz nic tu nie ma */
     
+    /* PIERWSZY PRZYCISK START */
 }
 #start{
     height: 15vh;
@@ -44,8 +45,10 @@
     transform: scale(1.5);
 }
 
+/* PODŚWIETLENIE PRZYCISKU */
+
 button:hover{
-    background-color: red;
+    background-color: #c8d7e2d6 ;
     transition: background-color 0.3s;
     transform: scale(1.1)
 
@@ -63,15 +66,13 @@ body{
 
 }
 
-
-
+/* POZYCJE PRZYCISKÓW */
 #go {
     position: fixed;
-    bottom: 5rem;     /* 20px od dołu */
-    left: 6vw;      /* 20px od prawej */
-    display: none;    /* domyślnie ukryte */
+    bottom: 5rem;
+    left: 6vw;
+    display: none;
     gap: 10px;
-    
 }
 
 #go button {
@@ -81,60 +82,83 @@ body{
     border-radius: 15px;
 }
 
-/* OBWÓDKI PRZYCISKÓW */
+/* POZYCJE PRZYCISKÓW */
+#go {
+  position: fixed;
+  bottom: 5rem;
+  left: 6vw;
+  display: none;
+  gap: 10px;
+}
+
+#go button {
+  height: 8vh;
+  margin-left: 4vw;
+  width: 15vw;
+}
+
+/* PRZYCISK */
 .where {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  border: none;
-  background: transparent;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  background: transparent;          /* kolor tła = kolor strony */
+  color: inherit;                   /* tekst dziedziczy kolor */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: visible;
+  z-index: 0;
+  transition: transform .25s ease;
 }
 
+/* ROTUJĄCA OBRĘCZ z gradientem – bez wypełnienia środka */
+.where::before {
+  content: "";
+  position: absolute;
+  inset: -4px;                      /* grubość ringu */
+  border-radius: 50%;
+  background: conic-gradient(#00ffff, #ff00ff, #00ffff);
+  /* wycięcie środka (tylko obwódka) */
+  mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+
+  /* animacje i stan domyślny */
+  animation: spin 3s linear infinite;
+  opacity: 0;                       /* domyślnie niewidoczna obręcz */
+  transition: opacity .25s ease;
+  z-index: -1;                      /* pod treścią przycisku */
+}
+
+/* Treść (np. obrazek) nad obręczą */
 .where img {
   height: 60%;
-  margin-right: 8px;
-}
-
-.orbit-border {
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #00f, #0ff);
-  animation: rotate 2s linear infinite;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.where:hover .orbit-border {
-  opacity: 1;
-}
-
-.where:hover {
-  transform: scale(1.05);
-}
-
-.where > * {
-  position: relative;
+  margin-right: 0;
+  pointer-events: none;
   z-index: 1;
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* HOVER: pokaż obręcz + pulsuj całość */
+.where:hover::before {
+  opacity: 1;
+  animation-duration: 1.6s;         /* szybszy obrót na hover */
 }
 
-    
+.where:hover {
+  animation: pulse 1.6s ease-in-out infinite;
+}
 
+/* ANIMACJE */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);    }
+  50%      { transform: scale(1.06); }
+}
