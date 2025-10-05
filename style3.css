@@ -1,0 +1,10 @@
+#section4 {
+    
+  height: 100vh;
+  width: 100vw;
+    background-image: url("Graifka\ na\ ostatnią\ stronę.png");
+    background-size: cover;       /* rozciąga, żeby pokrył cały ekran */
+  background-position: center;  /* środek obrazka zawsze na środku */
+  background-repeat: no-repeat;  /* nie powtarza obrazka */
+  border-radius: 0;
+}
