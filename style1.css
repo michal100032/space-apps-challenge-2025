@@ -152,14 +152,14 @@ select {
 
 /* PODŚWIETLENIE PRZYCISKU */
 
-#section1 button:hover, #section2 button:hover, #firstPlan button:hover {
+button:hover {
     background-color:  #324b6e ;
     transition: background-color 0.3s;
     transform: scale(1.1)
 
 }
 
-#section1 button:hover, #section2 button:hover, #firstPlan button:hover {
+button {
     transition: transform 0.2s ease, background 0.2s ease;
     background-color: #edf1f4 ;
 }
