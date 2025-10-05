@@ -275,6 +275,7 @@ body{
 }
 
 
+
 #providedside{
     position: fixed;
     text-align: right;
@@ -282,3 +283,22 @@ body{
     right: 2vw;
     
 }
+
+#close-hint{
+    margin-right: 5px;
+    margin-top: 1.5px;
+    height: 1.5vw;
+    width: 2.5vw;
+    border-radius: 10%;
+    border-color:#ae072b;
+    border-width: 2px;
+    background-color: #edf1f4;
+}
+
+#close-hint:hover{
+    transition: transform 0.6s ease-in-out;
+    background-color:  #ae072b ;
+    transform: scale(1.1);
+
+}
+
