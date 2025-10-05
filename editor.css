@@ -56,9 +56,9 @@
 #hint{
     position:absolute;
     left: 1.5vw;
-    top: 2vh;
-    width: 20vw;
-    height: 50vh;
+    top: 3vh;
+    width: 25vw;
+    height: 70vh;
     border-radius: 15px;
     background: rgba(10, 10, 10, 0.6);
     border: solid #edf1f4;
@@ -78,5 +78,6 @@
     text-align: left;
     padding: 0;
     margin-top: 1vw;
+    margin-left: 2.5vw;
 }
 
