@@ -273,3 +273,12 @@ body{
     border-radius: 0%;
 
 }
+
+
+#providedside{
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    right: 2vw;
+    
+}
