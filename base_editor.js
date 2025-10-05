@@ -6,6 +6,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const editor = document.getElementById("section3");
 const scene = new THREE.Scene();
 
+
 let objectBeingMoved = null;
 
 let corridorModel = null;
@@ -19,7 +20,7 @@ loader.load('models/corridor.glb', (gltf) => {
     corridorModel.children.forEach(child => {
         child.castShadow = true; // enable shadow casting for each child
         child.receiveShadow = true; // enable shadow receiving for each child
-        child.material = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
+        child.material = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, flatShading: true});
     });
 }, undefined, (error) => {
     console.error('Error loading corridor model:', error);
@@ -30,13 +31,18 @@ loader.load('models/hub.glb', (gltf) => {
     hubModel.children.forEach(child => {
         child.castShadow = true; // enable shadow casting for each child
         child.receiveShadow = true; // enable shadow receiving for each child
-        child.material = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
+        child.material = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, flatShading: true});
     });
     // Create a default hub in the scene
     new Hub(new THREE.Vector3(0, 0.5, 0));
 }, undefined, (error) => {
     console.error('Error loading hub model:', error);
 });
+
+// =====================================================================
+// NIE DOTYKAĆ - LINIJKA ODPOWIEDZIALNA ZA TESTURY I PV JEDNOCZESNIE!!!!
+// ======================================================================
+
 
 loader.load('models/terrain.glb', (gltf) => {
     let terrainModel = gltf.scene;
@@ -51,16 +57,40 @@ loader.load('models/terrain.glb', (gltf) => {
     console.error('Error loading terrain model:', error);
 });
 
+
 loader.load('models/pv.glb', (gltf) => {
     pvModel = gltf.scene;
     pvModel.children.forEach(child => {
         child.castShadow = true; // enable shadow casting for each child
         child.receiveShadow = true; // enable shadow receiving for each child
-        child.material = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
+        child.material = new THREE.MeshStandardMaterial({ color: 0x000000, flatShading: true});
     });
+    
 }, undefined, (error) => {
     console.error('Error loading terrain model:', error);
 });
+
+const textureLoader = new THREE.TextureLoader();
+const terrainTexture = textureLoader.load('moon01.jpg'); // ← ścieżka do pliku JPG/PNG
+
+loader.load('models/terrain.glb', (gltf) => {
+    let terrainModel = gltf.scene;
+    terrainModel.children.forEach(child => {
+        child.castShadow = true;
+        child.receiveShadow = true;
+
+        child.material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+        child.material.map = terrainTexture; // ← ta linijka dodaje teksturę
+        child.material.needsUpdate = true;   // ← aktualizacja materiału
+    });
+    scene.add(terrainModel);
+}, undefined, (error) => {
+    console.error('Error loading terrain model:', error);
+});
+
+// =====================================================================
+// NIE DOTYKAĆ - LINIJKA ODPOWIEDZIALNA ZA TESTURY I PV JEDNOCZESNIE!!!!
+// ======================================================================
 
 const placeCorridorButton = document.getElementById("place-corridor-button");
 placeCorridorButton.addEventListener('click', () => {
