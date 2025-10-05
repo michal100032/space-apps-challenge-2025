@@ -8,3 +8,98 @@
   background-repeat: no-repeat;  /* nie powtarza obrazka */
   border-radius: 0;
 }
+
+#button-inside-atrium {
+    position: relative;
+    height: 5vh;
+    width: 10vw;
+    top: 30vh;
+    left: -3vw;
+
+    /* styl wizualny */
+    background: none;
+    border: solid black;
+    color: black;
+    text-align: center;
+    
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease, background-color 0.3s ease;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Efekt po najechaniu */
+#button-inside-atrium:hover {
+    transform: scale(5);
+    background-image: url("atrium01.png");
+    background-color: transparent; /* tło znika, zostaje obraz */
+    border: none;
+    color: transparent;
+}
+#button-inside-workshop1{
+    position: relative;
+    height: 5vh;
+    width: 10vw;
+    top: 40vh;
+    left: 5vw;
+    /* styl wizualny */
+    background: none;
+    border: solid black;
+    color: black;
+    text-align: center;
+    
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease, background-color 0.3s ease;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#button-inside-workshop1:hover {
+    transform: scale(5);
+    background-image: url("Workshop01.png");
+    background-color: transparent; /* tło znika, zostaje obraz */
+    border: none;
+    color: transparent;
+}
+
+#button-inside-workshop2{
+    position: relative;
+    height: 5vh;
+    width: 10vw;
+    top: 53vh;
+    margin-left: -37vw;
+
+     /* styl wizualny */
+    background: none;
+    border: solid black;
+    color: black;
+    text-align: center;
+    
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease, background-color 0.3s ease;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#button-inside-workshop2:hover{
+    transform: scale(5);
+    background-image: url("Workshop02.png");
+    background-color: transparent; /* tło znika, zostaje obraz */
+    border: none;
+    color: transparent;
+}
+
+
+#report{
+    position: relative;
+    left: 5vw;
+}
