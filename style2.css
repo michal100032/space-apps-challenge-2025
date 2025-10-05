@@ -57,7 +57,7 @@
 /* Przycisk "Dalej" */
 #dalejBtn {
   align-self: flex-end; /* trzyma się po prawej stronie formularza */
-  background: #4CAF50;
+  background: #ae072b;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -68,7 +68,7 @@
 }
 
 #dalejBtn:hover {
-  background: #45a049;
+  background: #ae072b;
 }
 
 #habitat{
