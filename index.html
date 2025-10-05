@@ -168,19 +168,18 @@
     <div id="editor-buttons">
         <button id="place-corridor-button">Place corridor</button>
         <button id="place-hub-button">Place hub</button>
-        <button id="place-PV-module">Place PV module</button>
+        <button id="place-pv-module">Place PV module</button>
         <button id="nextSection-button" onclick="scrollToSection(4)">NEXT</button>
         <button id="backSection-button" onclick="scrollToBack()">BACK</button>
-        <button id="tutorialButton" onclick="tutorialButton()">
-          
-            <h1 style="margin-top: 0;">HINT </h1>
-          
-          <ul>
+        <div id="hint">          
+          <h3 style="text-align: center; width: 80%; float:left;">HINT</h3>
+          <button id="close-hint" style="float: right;" onclick="document.getElementById('hint').style.display='none'">X</button>
+          <ul style="clear: both;">
             <li><img src="myszka (2).png" width="80" alt="">Rotation / pick and place</li>
             <li><img src="myszka (3).png" alt="" width="80">Move</li>
             <li><img src="myszka (1).png" alt="" width="80">Zoom</li>
             <li><img src="habitat.gif" alt="" width="280"></li>
-        </button>
+          </div>
     </div>
   </div>
 

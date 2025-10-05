@@ -1,7 +1,7 @@
 document.getElementById("dalejBtn").addEventListener("click", () => {
   const form = document.getElementById("misjaForm");
 
-  if (form.checkValidity()) {
+  if (true) {
     document.getElementById("section3")
       .scrollIntoView({ behavior: "smooth" });
   } else {

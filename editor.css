@@ -4,7 +4,7 @@
     height: 100vh;
 }
 
-#section3 button {
+#editor-buttons > button {
     position: absolute;
     width: 10vw;
     height: 15vh;
@@ -42,7 +42,7 @@
 
 /*kolejne nowe przyciski */
 
-#place-PV-module{
+#place-pv-module {
     top: 45vh;
 }
 #nextSection-button{
@@ -53,25 +53,26 @@
     top: 85vh;
 }
 
-#section3 #tutorialButton{
+#hint{
+    position:absolute;
     left: 1.5vw;
     top: 2vh;
-    width: 23vw;
-    height: 70vh;
+    width: 20vw;
+    height: 50vh;
     border-radius: 15px;
-    background: none;
+    background: rgba(10, 10, 10, 0.6);
     border: solid #edf1f4;
     
 }
 
-#section3 #tutorialButton ul li{
+#hint ul li{
     list-style: none;
     text-align: left;
     padding: 0;
     margin-left: -2vw;
 }
 
-#section3 #tutorialButton ul li img{
+#hint ul li img{
     border-radius: 10px;
     list-style: none;
     text-align: left;

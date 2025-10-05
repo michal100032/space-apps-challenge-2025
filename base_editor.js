@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Scene
 const editor = document.getElementById("section3");
@@ -7,9 +8,63 @@ const scene = new THREE.Scene();
 
 let objectBeingMoved = null;
 
+let corridorModel = null;
+let hubModel = null;
+let pvModel = null;
+
+// Load models
+const loader = new GLTFLoader();
+loader.load('models/corridor.glb', (gltf) => {
+    corridorModel = gltf.scene;
+    corridorModel.children.forEach(child => {
+        child.castShadow = true; // enable shadow casting for each child
+        child.receiveShadow = true; // enable shadow receiving for each child
+        child.material = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
+    });
+}, undefined, (error) => {
+    console.error('Error loading corridor model:', error);
+});
+
+loader.load('models/hub.glb', (gltf) => {
+    hubModel = gltf.scene;
+    hubModel.children.forEach(child => {
+        child.castShadow = true; // enable shadow casting for each child
+        child.receiveShadow = true; // enable shadow receiving for each child
+        child.material = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
+    });
+    // Create a default hub in the scene
+    new Hub(new THREE.Vector3(0, 0.5, 0));
+}, undefined, (error) => {
+    console.error('Error loading hub model:', error);
+});
+
+loader.load('models/terrain.glb', (gltf) => {
+    let terrainModel = gltf.scene;
+    terrainModel.children.forEach(child => {
+        child.castShadow = true; // enable shadow casting for each child
+        child.receiveShadow = true; // enable shadow receiving for each child
+        child.material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    });
+    // Create a default terrain in the scene
+    scene.add(terrainModel);
+}, undefined, (error) => {
+    console.error('Error loading terrain model:', error);
+});
+
+loader.load('models/pv.glb', (gltf) => {
+    pvModel = gltf.scene;
+    pvModel.children.forEach(child => {
+        child.castShadow = true; // enable shadow casting for each child
+        child.receiveShadow = true; // enable shadow receiving for each child
+        child.material = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
+    });
+}, undefined, (error) => {
+    console.error('Error loading terrain model:', error);
+});
+
 const placeCorridorButton = document.getElementById("place-corridor-button");
 placeCorridorButton.addEventListener('click', () => {
-    const position = new THREE.Vector3(0, 1, 0);
+    const position = new THREE.Vector3(0, -10, 0);
     const rotation = 0;
     objectBeingMoved = new Corridor(position, rotation);
     snappingPointsShow();
@@ -17,9 +72,15 @@ placeCorridorButton.addEventListener('click', () => {
 
 const placeHubButton = document.getElementById("place-hub-button");
 placeHubButton.addEventListener('click', () => {
-    const position = new THREE.Vector3(0, 1, 0);
+    const position = new THREE.Vector3(0, -10, 0);
     objectBeingMoved = new Hub(position);
     snappingPointsShow();
+});
+
+const placePVModuleButton = document.getElementById("place-pv-module");
+placePVModuleButton.addEventListener('click', () => {
+    const position = new THREE.Vector3(0, -10, 0);
+    objectBeingMoved = new PVModule(position, 0);
 });
 
 // Camera
@@ -35,22 +96,11 @@ renderer.shadowMap.enabled = true;   // Important: enable shadow map
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // optional: soft shadows
 editor.appendChild(renderer.domElement);
 
-// Place ground plane
-const planeGeometry = new THREE.PlaneGeometry(100, 100);
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load('moon01.jpg');
-const planeMaterial = new THREE.MeshStandardMaterial({map: texture});
-
-const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-plane.receiveShadow = true; // enable shadow receiving
-scene.add(plane);   
-plane.rotation.x = -Math.PI / 2;
-
 // Light
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 1.5 );
 directionalLight.shadow.mapSize.width = 2048;
 directionalLight.shadow.mapSize.height = 2048;
-directionalLight.position.set(0, 10, 10); // initial position
+directionalLight.position.set(-20, 10, -5); // initial position
 directionalLight.target.position.set(0, 0, 0); // where it points
 directionalLight.castShadow = true;      // enable shadow casting
 scene.add(directionalLight);
@@ -60,9 +110,9 @@ scene.add(directionalLight.target);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.maxPolarAngle = Math.PI / 2 - 0.05; // radians
 
-const CORRIDOR_LENGTH = 3;
+const CORRIDOR_LENGTH = 3.25;
 const CORRIDOR_DIAMETER = 1;
-const HUB_DIAMETER = 3;
+const HUB_DIAMETER = 3.55;
 const MINIMUM_SNAP_DISTANCE = 1;
 
 
@@ -80,6 +130,28 @@ function snappingPointsShow() {
     });
 }
 
+class PVModule {
+    constructor(position, rotation) {
+        this.group = new THREE.Group();
+        this.createPVModule(position, rotation);
+        scene.add(this.group);
+        this.snapPointPositions = []; // PV modules have no snap points
+    }
+    createPVModule(position, rotation) {
+        if (!pvModel) return;
+        this.model = pvModel.clone();
+        this.model.position.set(0, 0, 0);
+        this.model.rotation.set(Math.PI / 2, 0, 0);
+        this.group.position.copy(position);
+        this.group.rotation.y = rotation;
+        this.group.add(this.model);
+    }
+
+    setPosition(position) {
+        this.group.position.copy(position);
+    }
+}
+
 class Corridor {
     constructor(position, rotation) {
         this.group = new THREE.Group();
@@ -90,17 +162,14 @@ class Corridor {
         scene.add(this.group);
     }
     createCorridor(position, rotation) {
-        const corridorMaterial = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true}); 
-        const corridorGeometry = new THREE.CylinderGeometry(CORRIDOR_DIAMETER / 2, CORRIDOR_DIAMETER / 2, CORRIDOR_LENGTH, 8);
-        const corridorMesh = new THREE.Mesh(corridorGeometry, corridorMaterial);
-        corridorMesh.castShadow = true; // enable shadow casting
-        corridorMesh.receiveShadow = true; // enable shadow receiving
-        
-        corridorMesh.rotation.x = Math.PI / 2;
-        corridorMesh.rotation.y = Math.PI / 8;
-        this.group.add(corridorMesh);
-        this.group.position.copy(position);
-        this.group.rotation.y = rotation;
+        if (corridorModel) {
+            this.model = corridorModel.clone();
+            this.model.position.set(0, 0, 0);
+            this.model.rotation.set(Math.PI / 2, 0, 0);
+            this.group.add(this.model);
+            this.group.position.copy(position);
+            this.group.rotation.y = rotation;
+        }
     }
     createSnapPoints(position, rotation) {
         const snapPointGeometry = new THREE.SphereGeometry(0.1, 8, 8);
@@ -152,14 +221,13 @@ class Hub {
         buildingBlocks.push(this);
     }
     createHub(position) {
-        const hubMaterial = new THREE.MeshStandardMaterial({ color: 0x5555aa, flatShading: true});
-        const hubGeometry = new THREE.CylinderGeometry(HUB_DIAMETER / 2, HUB_DIAMETER / 2, 1, 8);
-        const hubMesh = new THREE.Mesh(hubGeometry, hubMaterial);
-        hubMesh.castShadow = true; // enable shadow casting
-        hubMesh.receiveShadow = true;
-        hubMesh.rotation.y = Math.PI / 8;
-        this.group.position.copy(position);
-        this.group.add(hubMesh);
+        if (hubModel) {
+            this.model = hubModel.clone();
+            this.model.position.set(0, 0, 0);
+            this.model.rotation.set(Math.PI / 2, 0, 0);
+            this.group.add(this.model);
+            this.group.position.copy(position);
+        }
     }
 
     createSnapPoints(position) {
@@ -199,9 +267,6 @@ class Hub {
     }
 }
 
-// Create a default hub in the scene
-const hub = new Hub(new THREE.Vector3(0, 0.5, 0));
-
 // Resize handling
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -229,7 +294,7 @@ renderer.domElement.addEventListener('mousemove', (event) => {
     if (intersects.length > 0) {
         let intersect;
         // check if the intersected object is not the hoverSphere itself
-        if (objectBeingMoved.group.children.includes(intersects[0].object)) {
+        if (objectBeingMoved.model.children.includes(intersects[0].object)) {
             if (intersects.length > 1) {
                 intersect = intersects[1];
             } else {
