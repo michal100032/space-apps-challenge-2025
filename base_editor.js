@@ -139,6 +139,7 @@ class PVModule {
     }
     createPVModule(position, rotation) {
         if (!pvModel) return;
+
         this.model = pvModel.clone();
         this.model.position.set(0, 0, 0);
         this.model.rotation.set(Math.PI / 2, 0, 0);
@@ -292,18 +293,17 @@ renderer.domElement.addEventListener('mousemove', (event) => {
     const intersects = raycaster.intersectObjects(scene.children, true);
 
     if (intersects.length > 0) {
-        let intersect;
-        // check if the intersected object is not the hoverSphere itself
-        if (objectBeingMoved.model.children.includes(intersects[0].object)) {
-            if (intersects.length > 1) {
-                intersect = intersects[1];
-            } else {
-                hoverSphere.visible = false;
-                return;
-            }
-        } else {
-            intersect = intersects[0];
+        let intersect = null;
+        do
+        {
+            intersect = intersects.shift();
+        } while (intersect && objectBeingMoved.model.children.includes(intersect.object) && intersects.length > 0);
+        
+        if (!intersect) {
+            hoverSphere.visible = false;
+            return;
         }
+
         objectBeingMoved.setPosition(intersect.point);
 
         let closestSnapPoint = null;
